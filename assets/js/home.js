@@ -1,14 +1,14 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-let API = "http://localhost:3000/products?status=bestseller";
+let API = "https://api-fashion.vercel.app/products?status=bestseller";
 //Reload to top
 document.addEventListener("DOMContentLoaded", () => {
   window.scrollTo(0, 0);
 });
 // định nghĩa các API
-const api1 = "http://localhost:3000/products?status=bestseller";
-const api2 = "http://localhost:3000/products?status=sale";
-const api3 = "http://localhost:3000/products?status=favourite";
+const api1 = "https://api-fashion.vercel.app/products?status=bestseller";
+const api2 = "https://api-fashion.vercel.app/products?status=sale";
+const api3 = "https://api-fashion.vercel.app/products?status=favourite";
 // tạo hàm xử lý yêu cầu API
 async function fetchData(api) {
   const response = await fetch(api);
@@ -89,7 +89,7 @@ $$(".more").forEach((item) => {
   item.addEventListener("click", (e) => {
     if (e.target.dataset.status == "bestseller") {
       window.location.href = "./src/more.html";
-      API = "http://localhost:3000/products?status=bestseller";
+      API = "https://api-fashion.vercel.app/products?status=bestseller";
     } else if (e.target.dataset.status == "sale") {
       $(".sale-content").classList.add("swap-content");
     } else if (e.target.dataset.status == "favourite") {

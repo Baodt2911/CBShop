@@ -23,7 +23,7 @@ xhr.onreadystatechange = function () {
     eval(this.responseText);
   }
 };
-xhr.open("GET", "./home.js", true);
+xhr.open("GET", "https://cb-shop-baodt2911.vercel.app/assets/js/home.js", true);
 xhr.send();
 
 fetch(API)

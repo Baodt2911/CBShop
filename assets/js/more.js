@@ -1,8 +1,12 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+//Lấy giá trị queryString từ URL hiện tại của trang
 const queryString = window.location.search;
+// new URLSearchParams cho phép tìm kiếm,sửa,xóa trong queryString
 const urlParams = new URLSearchParams(queryString);
+//Lấy giá trị mang tên status
 const encodedUrl = urlParams.get("status");
+//Giải mã kí tự đặc biệt
 const decodedUrl = decodeURIComponent(encodedUrl);
 
 //Reload to top
@@ -46,9 +50,12 @@ fetch(`https://api-fashion.vercel.app/products?status=${decodedUrl}`)
     $(".content").innerHTML = $(".content").innerHTML + htmls.join("");
   });
 //Thay đổi status
-$(".main-content h1").innerHTML =
-  decodedUrl == "bestseller" ? "Bán chạy nhất" : "Sale 50%";
-$(".main-content h1").innerHTML =
-  decodedUrl == "favourite"
-    ? `<i class="fa-solid fa-heart"></i><span>Yêu thích</span>`
-    : "Sale <span>50%</span>";
+if (decodedUrl == "bestseller") {
+  $(".main-content h1").innerHTML = "Bán chạy nhất";
+} else if (decodedUrl == "sale") {
+  $(".main-content h1").innerHTML = "Sale 60%";
+} else {
+  $(
+    ".main-content h1"
+  ).innerHTML = `<i class="fa-solid fa-heart"></i><span>Yêu thích</span>`;
+}

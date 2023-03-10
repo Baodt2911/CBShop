@@ -1,6 +1,6 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-let API = "https://api-fashion.vercel.app/products?status=bestseller";
+
 //Reload to top
 document.addEventListener("DOMContentLoaded", () => {
   window.scrollTo(0, 0);
@@ -88,22 +88,40 @@ async function fetchData(api) {
 $$(".more").forEach((item) => {
   item.addEventListener("click", (e) => {
     if (e.target.dataset.status == "bestseller") {
-      window.location.href = "./src/more.html";
-      API = "https://api-fashion.vercel.app/products?status=bestseller";
+      window.location.href = "./src/more.html?status=bestseller";
     } else if (e.target.dataset.status == "sale") {
-      $(".sale-content").classList.add("swap-content");
+      window.location.href = "./src/more.html?status=sale";
     } else if (e.target.dataset.status == "favourite") {
-      $(".favourite-content").classList.add("swap-content");
+      window.location.href = "./src/more.html?status=favourite";
     }
   });
 });
 //Slider-Scroll
-$(".next").addEventListener("click", () => {
-  $(".bestseller-content").scrollLeft += $(".item-products").offsetWidth * 3;
+$$(".next").forEach((item) => {
+  item.addEventListener("click", (e) => {
+    if (e.target.dataset.status == "bestseller") {
+      $(".bestseller-content").scrollLeft +=
+        $(".item-products").offsetWidth * 3;
+    } else if (e.target.dataset.status == "sale") {
+      $(".sale-content").scrollLeft += $(".item-products").offsetWidth * 3;
+    } else if (e.target.dataset.status == "favourite") {
+      $(".favourite-content").scrollLeft += $(".item-products").offsetWidth * 3;
+    }
+  });
 });
-$(".prev").addEventListener("click", () => {
-  $(".bestseller-content").scrollLeft -= $(".item-products").offsetWidth * 3;
+$$(".prev").forEach((item) => {
+  item.addEventListener("click", (e) => {
+    if (e.target.dataset.status == "bestseller") {
+      $(".bestseller-content").scrollLeft -=
+        $(".item-products").offsetWidth * 3;
+    } else if (e.target.dataset.status == "sale") {
+      $(".sale-content").scrollLeft -= $(".item-products").offsetWidth * 3;
+    } else if (e.target.dataset.status == "favourite") {
+      $(".favourite-content").scrollLeft -= $(".item-products").offsetWidth * 3;
+    }
+  });
 });
+
 //Scrooll-header
 window.addEventListener("scroll", () => {
   let Y = window.scrollY;
@@ -116,4 +134,3 @@ window.addEventListener("scroll", () => {
     $("#btn-to-top").style.display = "none";
   }
 });
-export { API };

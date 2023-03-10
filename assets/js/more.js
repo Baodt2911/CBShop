@@ -1,6 +1,10 @@
-import { API } from "./home";
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const encodedUrl = urlParams.get("status");
+const decodedUrl = decodeURIComponent(encodedUrl);
+
 //Reload to top
 document.addEventListener("DOMContentLoaded", () => {
   window.scrollTo(0, 0);
@@ -17,16 +21,8 @@ window.addEventListener("scroll", () => {
     $("#btn-to-top").style.display = "none";
   }
 });
-const xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200) {
-    eval(this.responseText);
-  }
-};
-xhr.open("GET", "https://cb-shop-baodt2911.vercel.app/assets/js/home.js", true);
-xhr.send();
 
-fetch(API)
+fetch(`https://api-fashion.vercel.app/products?status=${decodedUrl}`)
   .then((res) => res.json())
   .then((datas) => {
     const htmls = datas.map((data) => {
@@ -39,7 +35,7 @@ fetch(API)
                       )}</span></p>
                       <div class="buy-add">
                           <div class="add-cart">
-                              <img src="./assets/icon/addcart.png" alt="">
+                              <img src="../assets/icon/addcart.png" alt="">
                               Thêm vào giỏ hàng
                           </div>
                           <a href="" class="buy">Mua ngay</a>
@@ -49,3 +45,10 @@ fetch(API)
     });
     $(".content").innerHTML = $(".content").innerHTML + htmls.join("");
   });
+//Thay đổi status
+$(".main-content h1").innerHTML =
+  decodedUrl == "bestseller" ? "Bán chạy nhất" : "Sale 50%";
+$(".main-content h1").innerHTML =
+  decodedUrl == "favourite"
+    ? `<i class="fa-solid fa-heart"></i><span>Yêu thích</span>`
+    : "Sale <span>50%</span>";

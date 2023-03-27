@@ -1,29 +1,113 @@
 #container {
+  position: relative;
   width: 100%;
+  display: grid;
+  grid-template-columns: 75% 15%;
+  justify-content: space-evenly;
   margin: 0 auto;
-  padding-bottom: 100px;
-  padding-top: 100px;
+  padding-bottom: 150px;
+  padding-top: 150px;
+}
+.fillter-price {
+  width: 100%;
+}
+.fillter-price h3 {
+  font-family: system-ui, sans-serif;
+  margin-bottom: 30px;
+}
+
+.item-fillter {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  font-size: 17px;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.item-fillter input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.item-fillter:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* Show the checkmark when checked */
+.item-fillter input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.item-fillter .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid #333333;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 .main-content {
   position: relative;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
+  margin-bottom: 30px;
 }
-.main-content h1 {
-  display: inline-block;
+
+.main-content .title-content {
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 0 10px 10px 0 #fafafa;
+  padding: 5px 0 10px 10px;
   margin: 0 0 50px 0;
   font-family: system-ui, sans-serif;
 }
-.content {
+.main-content .title-content .fillter-select span {
+  font-size: 13px;
+  margin-right: 10px;
+}
+.main-content .title-content #select {
+  width: 130px;
+  height: 40px;
+  padding: 10px;
+  outline: none;
+}
+.content-clothes {
   height: auto;
   overflow: none;
   display: grid;
   grid-template-columns: repeat(4, 20%);
-  gap: 50px;
   justify-content: center;
+  column-gap: 70px;
+  row-gap: 100px;
   transition: 0.5s;
 }
-.content .item-products {
+.content-clothes .item-products {
   position: relative;
   width: 300px;
   height: 450px;
@@ -35,25 +119,25 @@
   transition: 0.5s;
   box-shadow: 0 0 2px 0 #b2bec3;
 }
-.content .item-products .name {
+.content-clothes .item-products .name {
   padding: 0 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.content .item-products .price {
+.content-clothes .item-products .price {
   position: relative;
   font-weight: 600;
   margin-top: 10px;
 }
-.content .item-products .price::after {
+.content-clothes .item-products .price::after {
   position: absolute;
   content: "đ";
   top: -2px;
   font-size: 13px;
   color: #e74c3c;
 }
-.content .item-products .item-img {
+.content-clothes .item-products .item-img {
   width: 100%;
   height: 80%;
   object-fit: cover;
@@ -61,24 +145,24 @@
   transition: 0.5s;
   border-bottom: 1px solid #dfe6e9;
 }
-.content .item-products:hover {
+.content-clothes .item-products:hover {
   box-shadow: 0 10px 50px 0 #dfe6e9;
   border-radius: 5px 30px;
 }
 
-.content .item-products:hover {
+.content-clothes .item-products:hover {
   box-shadow: 0 5px 20px 0 #dfe6e9;
 }
 
-.content .item-products:hover .item-img {
+.content-clothes .item-products:hover .item-img {
   border-radius: 0;
   box-shadow: 0 0 5px 0 #b2bec3;
   border-radius: 0 0 0 30px;
 }
-.content .item-products:hover .name {
+.content-clothes .item-products:hover .name {
   color: #e74c3c;
 }
-.content .item-products:hover .buy-add {
+.content-clothes .item-products:hover .buy-add {
   transform: translateY(0);
   opacity: 1;
 }

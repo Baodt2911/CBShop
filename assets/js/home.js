@@ -1,10 +1,3 @@
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
-
-//Reload to top
-document.addEventListener("DOMContentLoaded", () => {
-  window.scrollTo(0, 0);
-});
 // định nghĩa các API
 const api1 = "https://api-fashion.vercel.app/products?status=bestseller";
 const api2 = "https://api-fashion.vercel.app/products?status=sale";
@@ -23,7 +16,7 @@ async function fetchData(api) {
   //Render bestseller
   const htmls1 = data1.map((data) => {
     return `
-    <div class="item-products">
+    <div class="item-products" data-id=${data.id} onclick="handleClick(this)">
                   <img src=${data.main[0].images} alt="" class="item-img">
                   <p class="name">${data.name}</p>
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
@@ -44,7 +37,7 @@ async function fetchData(api) {
   //Render sale
   const htmls2 = data2.map((data) => {
     return `
-    <div class="item-products">
+    <div class="item-products" data-id=${data.id} onclick="handleClick(this)">
                   <img src=${data.main[0].images} alt="" class="item-img">
                   <p class="name">${data.name}</p>
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
@@ -64,7 +57,7 @@ async function fetchData(api) {
   //Render favourite
   const htmls3 = data3.map((data) => {
     return `
-    <div class="item-products">
+    <div class="item-products" data-id=${data.id} onclick="handleClick(this)" >
                   <img src=${data.main[0].images} alt="" class="item-img">
                   <p class="name">${data.name}</p>
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
@@ -84,18 +77,6 @@ async function fetchData(api) {
     $(".favourite-content").innerHTML + htmls3.join("");
 })();
 
-// Xem thêm Bán chạy nhất
-$$(".more").forEach((item) => {
-  item.addEventListener("click", (e) => {
-    if (e.target.dataset.status == "bestseller") {
-      window.location.href = "./src/more.html?status=bestseller";
-    } else if (e.target.dataset.status == "sale") {
-      window.location.href = "./src/more.html?status=sale";
-    } else if (e.target.dataset.status == "favourite") {
-      window.location.href = "./src/more.html?status=favourite";
-    }
-  });
-});
 //Slider-Scroll
 $$(".next").forEach((item) => {
   item.addEventListener("click", (e) => {
@@ -120,17 +101,4 @@ $$(".prev").forEach((item) => {
       $(".favourite-content").scrollLeft -= $(".item-products").offsetWidth * 3;
     }
   });
-});
-
-//Scrooll-header
-window.addEventListener("scroll", () => {
-  let Y = window.scrollY;
-  if (Y >= 350) {
-    $("#btn-to-top").style.display = "block";
-  } else if (Y >= 40) {
-    $(".main-header").style.top = `0`;
-  } else if (Y < 40) {
-    $(".main-header").style.top = `41px`;
-    $("#btn-to-top").style.display = "none";
-  }
 });

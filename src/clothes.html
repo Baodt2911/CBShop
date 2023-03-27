@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/images/icon.png">
+    <link rel="icon" href="../assets/images/icon.png">
     <link rel="stylesheet" href="../assets/css/Global.css">
-    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="stylesheet" href="../assets/css/clothes.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title>Trang chủ</title>
+    <title></title>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             </div>
             <div class="main-header">
                 <nav>
-                    <li id="active"><a href="./index.html">Trang chủ</a></li>
+                    <li id="active"><a href="../index.html">Trang chủ</a></li>
                     <li class="menClothes">
                         <a href="#">Đồ Nam</a>
                         <i class="fa-solid fa-angle-down"></i>
@@ -55,7 +55,7 @@
                         </ul>
                     </li>
                 </nav>
-                <div class="logo"><img src="./assets/images/CBShopLogo.png" alt="CBShop"></div>
+                <div class="logo"><img src="../assets/images/CBShopLogo.png" alt="CBShop"></div>
                 <div class="header-main-right">
                     <div class="search">
                         <input type="text" class="search-input" placeholder="Tìm kiếm quần áo nam, nữ, phụ kiện">
@@ -63,7 +63,7 @@
                     </div>
                     <div class="card-controls">
                         <div class="notice">
-                            <img src="./assets/icon/notice-available.png" alt="">
+                            <img src="../assets/icon/notice-available.png" alt="">
                             <ul class="notice-child">
                                 <li>Bạn vừa mua thành công một đơn hàng!</li>
                                 <li>Bạn vừa thêm 1 sản phẩm vào giỏ hàng!</li>
@@ -71,49 +71,55 @@
                             </ul>
                         </div>
                         <div class="profile">
-                            <img src="./assets/icon/user.png" alt="">
+                            <img src="../assets/icon/user.png" alt="">
                             <ul class="profile-child">
                                 <li> <a href="">Đăng nhập</a> </li>
                                 <li> <a href="">Đăng ký</a> </li>
                             </ul>
                         </div>
-                        <div class="cart"><img src="./assets/icon/cart.png" alt=""></div>
+                        <div class="cart"><img src="../assets/icon/cart.png" alt=""></div>
                     </div>
                 </div>
             </div>
         </header>
         <a href="#" id="btn-to-top"><i class="fa-solid fa-angle-up"></i></a>
         <div id="container">
-            <div class="banner">
-                <h1>Thời trang nam nữ</h1>
-                <a href="./index.html" class="btn-shop">CBShop</a>
-            </div>
-            <div class="bestseller">
-                <h1>Bán chạy nhất</h1>
-                <i class="fa-solid fa-chevron-left prev" data-status="bestseller"></i>
-                <div class="bestseller-content ">
+            <div class="main-content">
+                <div class="title-content">
+                    <h1>Áo polo</h1>
+                    <div class="fillter-select">
+                        <span>Sắp xếp theo: </span>
+                        <select name="Sắp xếp" id="select">
+                            <option value="default">Mặc định</option>
+                            <option value="increase">Giá: Tăng dần</option>
+                            <option value="reduce">Giá: Giảm dần</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="content-clothes">
 
                 </div>
-                <i class="fa-solid fa-chevron-right next" data-status="bestseller"></i>
-                <a href="./src/more.html?status=bestseller" class="more">Xem thêm...</a>
             </div>
-            <div class="sale">
-                <h1>Sale <span>50%</span></h1>
-                <i class="fa-solid fa-chevron-left prev " data-status="sale"></i>
-                <div class="sale-content">
-
+            <div class="fillter-price">
+                <h3>Khoảng giá</h3>
+                <div class="card-fillter-price">
+                    <label class="item-fillter">Dưới 100.000₫
+                        <input type="checkbox" data-price="0-100000">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="item-fillter">100.000₫ - 300.000₫
+                        <input type="checkbox" data-price="100000-300000">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="item-fillter">300.000₫ - 500.000₫
+                        <input type="checkbox" data-price="300000-500000">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="item-fillter">500.000₫ - 1.000.000₫
+                        <input type="checkbox" data-price="500000-1000000">
+                        <span class="checkmark"></span>
+                    </label>
                 </div>
-                <i class="fa-solid fa-chevron-right next" data-status="sale"></i>
-                <a href="./src/more.html?status=sale" class="more">Xem thêm...</a>
-            </div>
-            <div class="favourite">
-                <h1> <i class="fa-solid fa-heart"></i><span>Yêu thích</span> </h1>
-                <i class="fa-solid fa-chevron-left prev" data-status="favourite"></i>
-                <div class="favourite-content">
-
-                </div>
-                <i class="fa-solid fa-chevron-right next" data-status="favourite"></i>
-                <a href="./src/more.html?status=favourite" class="more">Xem thêm...</a>
             </div>
         </div>
         <div class="main-loader">
@@ -124,7 +130,7 @@
                 <div class="contact-footer-1">
                     <h4>Về chúng tôi</h4>
                     <p>Chúng tôi cung cấp các sản phẩm thời trang độc đáo và chất lượng cao cho các bạn trẻ.</p>
-                    <img src="./assets/images/CBShopLogo.png" alt="CB Shop">
+                    <img src="../assets/images/CBShopLogo.png" alt="CB Shop">
                 </div>
                 <div class="contact-footer-2">
                     <h4>Liên hệ</h4>
@@ -153,7 +159,7 @@
         </footer>
     </div>
     <script src="../assets/js/Global.js"></script>
-    <script src=" ../assets/js/home.js"></script>
+    <script src=" ../assets/js/main.js"></script>
 </body>
 
 </html>

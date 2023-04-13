@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/images/icon.png">
+    <link rel="stylesheet" href="../assets/css/login&register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <title>Đăng nhập</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="switch-login-register">
+            <div class="btn-login active-switch">Đăng nhập</div>
+            <div class="btn-register">Đăng ký</div>
+        </div>
+        <div class="main-content">
+            <div class="main-slide">
+                <form class="login item-content">
+                    <div class="card-user">
+                        <i class="fa-solid icon fa-circle-user"></i>
+                        <input type="text" class="user-name" placeholder="Tên đăng nhập">
+                    </div>
+                    <div class="password">
+                        <i class="fa-solid icon fa-lock"></i>
+                        <input type="password" class="password-input" placeholder="Mật khẩu" data-password="login-pass">
+                        <i class="fa-regular fa-eye-slash show-password" data-password="login-pass"></i>
+                    </div>
+                    <div class="card-login">
+                        <button type="submit">Đăng nhập</button>
+                        <a href="" class="forgot-password">Quên mật khẩu?</a>
+                    </div>
+                </form>
+                <form class="register item-content">
+                    <div class="card-user">
+                        <i class="fa-solid icon fa-circle-user"></i>
+                        <input type="text" class="user-name" placeholder="Tên đăng nhập">
+                    </div>
+                    <div class="card-email">
+                        <i class="fa-solid icon fa-envelope"></i>
+                        <input type="email" class="email" placeholder="Email">
+                    </div>
+                    <div class="password">
+                        <i class="fa-solid icon fa-lock"></i>
+                        <input type="password" class="password-input" placeholder="Mật khẩu"
+                            data-password="register-pass">
+                        <i class="fa-regular fa-eye-slash show-password" data-password="register-pass"></i>
+                    </div>
+                    <div class="re-password">
+                        <i class="fa-solid icon fa-lock"></i>
+                        <input type="password" class="password-input" placeholder="Nhập lại mật khẩu"
+                            data-password="re-register-pass">
+                        <i class="fa-regular fa-eye-slash show-password" data-password="re-register-pass"></i>
+                    </div>
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+        //Lấy giá trị queryString từ URL hiện tại của trang
+        const getQueryString = window.location.search;
+        // new URLSearchParams cho phép tìm kiếm,sửa,xóa trong queryString
+        const url = new URLSearchParams(getQueryString);
+        const continueValue = url.get("continue");
+        let index = 0;
+        let postitionX = 0;
+        const changeLoginRegister = (condition) => {
+            if (condition == "login") {
+                $(".btn-register").classList.remove("active-switch");
+                $(".btn-login").classList.add("active-switch");
+                $(".main-slide").style = `transform: translateX(0)`
+                document.title = "Đăng nhập"
+            } else if (condition == "register") {
+                $(".btn-login").classList.remove("active-switch");
+                $(".btn-register").classList.add("active-switch");
+                $(".main-slide").style = `transform: translateX(-100%)`
+                document.title = "Đăng ký"
+            }
+        }
+        changeLoginRegister(continueValue)
+        ///Login&Register
+        $(".btn-register").addEventListener("click", () => {
+            changeLoginRegister("register")
+        });
+        $(".btn-login").addEventListener("click", () => {
+            changeLoginRegister("login")
+        });
+        $$(".show-password").forEach(item => {
+            item.addEventListener("click", () => {
+                $$(".password-input").forEach(e => {
+                    if (item.dataset.password == e.dataset.password) {
+                        if (e.getAttribute("type") == "password") {
+                            e.setAttribute("type", "text")
+                            item.setAttribute("class", "fa-regular fa-eye show-password")
+                        } else if (e.getAttribute("type") == "text") {
+                            e.setAttribute("type", "password")
+                            item.setAttribute("class", "fa-regular fa-eye-slash show-password")
+                        }
+                    }
+                })
+
+            })
+        })
+    </script>
+</body>
+
+</html>

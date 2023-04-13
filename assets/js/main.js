@@ -7,8 +7,9 @@ const statusValue = urlParams.get("status");
 const typeValue = urlParams.get("type");
 const categoryValue = urlParams.get("category");
 const id = urlParams.get("id");
+const search = urlParams.get("search");
 //Giải mã kí tự đặc biệt
-// const statusValue = decodeURIComponent(statusValue);
+const searchValue = decodeURIComponent(search);
 
 //Page More
 const moreStatus = () => {
@@ -38,6 +39,8 @@ const moreStatus = () => {
               `;
       });
       $(".content").innerHTML = htmls.join("");
+      handleAddCart(); //Xử lý sự kiện bên Global.js
+      handleBuy();
     });
   //Thay đổi status
   const titleMore = {
@@ -174,6 +177,8 @@ const createElement = () => {
       changeTitle();
       arrangeData();
       arrangePrice();
+      handleAddCart(); //Xử lý sự kiện bên Global.js
+      handleBuy();
     });
 };
 const infoProducts = () => {
@@ -183,9 +188,10 @@ const infoProducts = () => {
       const renderProducts = () => {
         $(".item-slide-products img").src = datas[0].main[0].images;
         $(".name").innerHTML = datas[0].name;
-        $(".price").innerHTML = `Giá: ${datas[0].price.toLocaleString(
+        $(".add-cart-infor-products").dataset.id = datas[0].id;
+        $(".price span").innerHTML = `${datas[0].price.toLocaleString(
           "vi-VN"
-        )}đ`;
+        )}`;
         //Render Size
         const size = datas[0].size.map(
           (dataSize) =>
@@ -240,29 +246,44 @@ const infoProducts = () => {
             "active-products"
           );
         });
-      };
-      const handleClickChangeSile = () => {
-        $$(".item-images-products").forEach((itemImages) => {
-          itemImages.addEventListener("click", (img) => {
-            $(".item-slide-products img").src = img.target.src;
-            $$(".item-images-products").forEach((item) => {
-              item.setAttribute("id", "");
+        const handleClickChangeSile = () => {
+          $$(".item-images-products").forEach((itemImages) => {
+            itemImages.addEventListener("click", (img) => {
+              $(".item-slide-products img").src = img.target.src;
+              $$(".item-images-products").forEach((item) => {
+                item.setAttribute("id", "");
+              });
+              itemImages.setAttribute("id", "active-products");
+              index = Array.from($$(".item-images-products")).indexOf(
+                itemImages // Sử dụng Array.from để biến $$(".item-images-products") thành 1 array thực thụ . Vì $$(".item-images-products") là một NodeList không dùng được indexOf()
+                // Code này dùng để lấy index của một phẩn từ khi được click vào nhăm biết vị trí đang được active giúp hàm handleNextPrev có thể sử dụng next và prev mà không bị lỗi
+              );
             });
-            itemImages.setAttribute("id", "active-products");
           });
-        });
-      };
-      const handleClickColorImages = () => {
-        $$(".item-color").forEach((itemColors) => {
-          const colorImg = itemColors.querySelector("img");
-          itemColors.addEventListener("click", () => {
-            $(".item-slide-products img").src = colorImg.src;
-            $$(".item-color").forEach((itemColor) => {
-              itemColor.classList.remove("active-color");
+        };
+        const handleClickColorImages = () => {
+          $$(".item-color").forEach((itemColors) => {
+            const colorImg = itemColors.querySelector("img");
+            itemColors.addEventListener("click", () => {
+              $(".item-slide-products img").src = colorImg.src;
+              $$(".item-color").forEach((itemColor) => {
+                itemColor.classList.remove("active-color");
+              });
+              itemColors.classList.add("active-color");
+              index = Array.from($$(".item-color")).indexOf(itemColors); // Sử dụng Array.from để biến $$(".item-images-products") thành 1 array thực thụ . Vì $$(".item-images-products") là một NodeList không dùng được indexOf()
+              // Code này dùng để lấy index của một phẩn từ khi được click vào nhăm biết vị trí đang được active giúp hàm handleNextPrev có thể sử dụng next và prev mà không bị lỗi
+              $$(".item-images-products").forEach((item) => {
+                item.setAttribute("id", "");
+              });
+              $$(".item-images-products")[index].setAttribute(
+                "id",
+                "active-products"
+              ); //Khi click vào màu đã chọn index sẽ được trả về và active-products sẽ được thực hiện theo index được chỉ định
             });
-            itemColors.classList.add("active-color");
           });
-        });
+        };
+        handleClickChangeSile();
+        handleClickColorImages();
       };
       let valueQuantity = 1;
       const handleQuantityClick = () => {
@@ -314,10 +335,51 @@ const infoProducts = () => {
       };
       renderProducts();
       handleNextPrev();
-      handleClickChangeSile();
-      handleClickColorImages();
       handleQuantityClick();
       handleGeneralProducts();
+      handleAddCart(); //Xử lý sự kiện bên Global.js
+      handleBuy();
+    });
+};
+const ResultsSearch = () => {
+  fetch(`https://api-fashion.vercel.app/products?q=${searchValue}`)
+    .then((res) => res.json())
+    .then((datas) => {
+      const resultsSearch = datas.map((data) => {
+        return `
+              <div class="item-products" data-id=${
+                data.id
+              } onclick="handleClick(this)">
+                            <img src=${
+                              data.main[0].images
+                            } alt="" class="item-img">
+                            <p class="name">${data.name}</p>
+                            <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
+                              "vi-VN"
+                            )}</span></p>
+                            <div class="buy-add">
+                                <div class="add-cart">
+                                    <img src="../assets/icon/addcart.png" alt="">
+                                    Thêm vào giỏ hàng
+                                </div>
+                                <a href="" class="buy">Mua ngay</a>
+                            </div>
+                </div>
+              `;
+      });
+      $(".results-search").innerHTML = resultsSearch.join("");
+      if (datas.length == 0) {
+        $(
+          ".container h4"
+        ).innerHTML = `Không có kết quả nào tìm được với từ khóa: ${searchValue}`;
+      } else {
+        $(
+          ".container h4"
+        ).innerHTML = `Có ${datas.length} kết quả tìm được với từ khóa: ${searchValue}`;
+      }
+      document.title = `${searchValue}-Tìm kiếm | CBShop`;
+      handleAddCart(); //Xử lý sự kiện bên Global.js
+      handleBuy();
     });
 };
 if (statusValue !== null) {
@@ -326,6 +388,8 @@ if (statusValue !== null) {
   createElement();
 } else if (id != null) {
   infoProducts();
+} else if (search != null) {
+  ResultsSearch();
 } else {
   $("body").style.background =
     "url(https://www.makewebeasy.com/th/blog/wp-content/uploads/2019/12/cover.png)";

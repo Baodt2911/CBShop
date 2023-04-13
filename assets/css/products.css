@@ -35,6 +35,7 @@
   transition: 0.5s all;
 }
 .card-left .slide-images-products .main-slide .item-slide-products {
+  position: relative;
   flex: 1 0 100%;
 }
 .card-left .slide-images-products .main-slide .item-slide-products img {
@@ -155,7 +156,7 @@
   cursor: pointer;
   font-size: 14px;
 }
-.card-right .card-controls .add-cart {
+.card-right .card-controls .add-cart-infor-products {
   display: flex;
   align-items: center;
   gap: 5px;

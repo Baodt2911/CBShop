@@ -1,29 +1,24 @@
-#container {
-  width: 100%;
-  margin: 0 auto;
-  padding-bottom: 100px;
-  padding-top: 100px;
-}
-.main-content {
-  position: relative;
+.container {
   width: 90%;
-  margin: 0 auto;
+  margin: 100px auto;
 }
-.main-content h1 {
-  display: inline-block;
-  margin: 0 0 50px 0;
+.container h4 {
+  font-size: 20px;
+  font-weight: 200;
   font-family: system-ui, sans-serif;
+  margin-bottom: 50px;
 }
-.content {
+.results-search {
   height: auto;
   overflow: none;
   display: grid;
   grid-template-columns: repeat(4, 20%);
-  gap: 50px;
   justify-content: center;
+  column-gap: 70px;
+  row-gap: 100px;
   transition: 0.5s;
 }
-.content .item-products {
+.results-search .item-products {
   position: relative;
   width: 300px;
   height: 450px;
@@ -35,25 +30,25 @@
   transition: 0.5s;
   box-shadow: 0 0 2px 0 #b2bec3;
 }
-.content .item-products .name {
+.results-search .item-products .name {
   padding: 0 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.content .item-products .price {
+.results-search .item-products .price {
   position: relative;
   font-weight: 600;
   margin-top: 10px;
 }
-.content .item-products .price::after {
+.results-search .item-products .price::after {
   position: absolute;
   content: "đ";
   top: -2px;
   font-size: 13px;
   color: #e74c3c;
 }
-.content .item-products .item-img {
+.results-search .item-products .item-img {
   width: 100%;
   height: 80%;
   object-fit: cover;
@@ -61,24 +56,24 @@
   transition: 0.5s;
   border-bottom: 1px solid #dfe6e9;
 }
-.content .item-products:hover {
+.results-search .item-products:hover {
   box-shadow: 0 10px 50px 0 #dfe6e9;
   border-radius: 5px 30px;
 }
 
-.content .item-products:hover {
+.results-search .item-products:hover {
   box-shadow: 0 5px 20px 0 #dfe6e9;
 }
 
-.content .item-products:hover .item-img {
+.results-search .item-products:hover .item-img {
   border-radius: 0;
   box-shadow: 0 0 5px 0 #b2bec3;
   border-radius: 0 0 0 30px;
 }
-.content .item-products:hover .name {
+.results-search .item-products:hover .name {
   color: #e74c3c;
 }
-.content .item-products:hover .buy-add {
+.results-search .item-products:hover .buy-add {
   transform: translateY(0);
   opacity: 1;
 }

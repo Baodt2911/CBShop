@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../assets/images/icon.png">
     <link rel="stylesheet" href="../assets/css/Global.css">
-    <link rel="stylesheet" href="../assets/css/more.css">
+    <link rel="stylesheet" href="../assets/css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <title></title>
+    <title>Giỏ hàng của bạn | CBShop</title>
 </head>
 
 <body>
@@ -75,10 +75,6 @@
                         </div>
                     </div>
                     <div class="card-controls">
-                        <div class="notice">
-                            <img src="../assets/icon/addcart.png" alt="">
-                            <span>Đã thêm vào giỏ hàng</span>
-                        </div>
                         <div class="profile">
                             <img src="../assets/icon/user.png" alt="">
                             <ul class="profile-child">
@@ -92,16 +88,54 @@
             </div>
         </header>
         <a href="#" id="btn-to-top"><i class="fa-solid fa-angle-up"></i></a>
-        <div id="container">
-            <div class="main-content">
-                <h1>Bán chạy nhất</h1>
-                <div class="content">
-
-                </div>
-            </div>
-        </div>
         <div class="main-loader">
             <div id="loader"></div>
+        </div>
+        <div class="container">
+            <h1>Giỏ hàng <span>(0 sản phẩm)</span></h1>
+            <div class="cart-products">
+                <table class="main-cart">
+                    <!-- <thead class="infor-cart">
+                        <tr>
+                            <th style="width: 70px;">Chọn</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th style="width: 70px;">Xóa</th>
+                        </tr>
+                    </thead> -->
+                    <!-- <tr class="item-cart">
+                        <td class="choose-products">
+                            <input type="checkbox">
+                        </td>
+                        <td class="images_title_cart">
+                            <div class="images-cart-product">
+                                <img src="https://4men.com.vn/images/thumbs/2022/12/-17575-slide-products-638ebfc2bc076.jpg"
+                                    alt="">
+                            </div>
+                            <div class="title-cart">
+                                <p class="name-products">Quần kaki</p>
+                                <p class="color">Màu: Xanh</p>
+                                <p class="size">Size: XL</p>
+                            </div>
+                        </td>
+                        <td class="price-cart">200.000đ</td>
+                        <td class="quantity-cart">
+                            <input type="button" value="-" class="btn_decrenment-cart">
+                            <input type="number" class="btn_quantity_input_cart" min="1" max="10" value="1">
+                            <input type="button" value="+" class="btn_increment-cart">
+                        </td>
+                        <td class="remove-products">
+                            <i class="fa-regular fa-trash-can btn_remove"></i>
+                        </td>
+                    </tr> -->
+                </table>
+                <div class="buy-cart-products">
+                    <div class="total-amount">Tổng : <span style="color: #e74c3c;font-weight: 600;">0đ</span>
+                    </div>
+                    <a href="" class="btn-buy">Mua</a>
+                </div>
+            </div>
         </div>
         <footer>
             <div class="main-footer">
@@ -137,7 +171,7 @@
         </footer>
     </div>
     <script src="../assets/js/Global.js"></script>
-    <script src=" ../assets/js/main.js"></script>
+    <script src="../assets/js/cart.js"></script>
 </body>
 
 </html>

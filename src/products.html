@@ -21,7 +21,7 @@
             </div>
             <div class="main-header">
                 <nav>
-                    <li id="active"><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../index.html">Trang chủ</a></li>
                     <li class="menClothes">
                         <a href="#">Đồ Nam</a>
                         <i class="fa-solid fa-angle-down"></i>
@@ -60,24 +60,33 @@
                     <div class="search">
                         <input type="text" class="search-input" placeholder="Tìm kiếm quần áo nam, nữ, phụ kiện">
                         <i class="fa-solid fa-magnifying-glass btn-search"></i>
+                        <div class="suggest">
+                            <h6>Sản phẩm được tìm nhiều nhất</h6>
+                            <ul>
+                                <li><a href="/src/results-search.html?search=Áo thun">Áo thun
+                                    </a></li>
+                                <li><a href="/src/results-search.html?search=Áo sơ mi ">Áo sơ mi</a></li>
+                                <li><a href="/src/results-search.html?search=Quần short">Quần short</a></li>
+                                <li><a href="/src/results-search.html?search=Áo Hoodie">Áo Hoodie</a></li>
+                                <li><a href="/src/results-search.html?search=Quần kaki">Quần kaki</a></li>
+                                <li><a href="/src/results-search.html?search=Quần jean">Quần jean</a></li>
+                                <li><a href="/src/results-search.html?search=Váy">Váy</a></li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="card-controls">
                         <div class="notice">
-                            <img src="../assets/icon/notice-available.png" alt="">
-                            <ul class="notice-child">
-                                <li>Bạn vừa mua thành công một đơn hàng!</li>
-                                <li>Bạn vừa thêm 1 sản phẩm vào giỏ hàng!</li>
-                                <li>Bạn vừa thêm 1 sản phẩm vào giở hàng!</li>
-                            </ul>
+                            <img src="../assets/icon/addcart.png" alt="">
+                            <span>Đã thêm vào giỏ hàng</span>
                         </div>
                         <div class="profile">
                             <img src="../assets/icon/user.png" alt="">
                             <ul class="profile-child">
-                                <li> <a href="">Đăng nhập</a> </li>
-                                <li> <a href="">Đăng ký</a> </li>
+                                <li> <a href="/src/login&register.html?continue=login">Đăng nhập</a> </li>
+                                <li> <a href="/src/login&register.html?continue=register">Đăng ký</a> </li>
                             </ul>
                         </div>
-                        <div class="cart"><img src="../assets/icon/cart.png" alt=""></div>
+                        <a href="./cart.html" class="cart" data-count="0"><img src="../assets/icon/cart.png" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -89,7 +98,9 @@
                     <div class="slide-images-products">
                         <i class="fa-solid fa-chevron-left prev-slide-products"></i>
                         <div class="main-slide">
-                            <div class="item-slide-products"><img src="" alt=""></div>
+                            <div class="item-slide-products">
+                                <img src="" alt="">
+                            </div>
                         </div>
                         <i class="fa-solid fa-chevron-right next-slide-products"></i>
                     </div>
@@ -107,7 +118,7 @@
                 </div>
                 <div class="card-right">
                     <h2 class="name"></h2>
-                    <h2 class="price"></h2>
+                    <h2 class="price">Giá: <span></span>đ</h2>
                     <div class="card-size">
                         <span>Size: </span>
                         <select name="size" class="size" style="outline: none;">
@@ -146,7 +157,7 @@
                         <input type="button" value="+" class="btn_increment">
                     </div>
                     <div class="card-controls">
-                        <div class="add-cart">
+                        <div class="add-cart-infor-products" data-id="">
                             <img src="../assets/icon/addcart.png" alt="">
                             Thêm vào giỏ hàng
                         </div>

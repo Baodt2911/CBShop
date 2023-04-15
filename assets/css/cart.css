@@ -123,6 +123,9 @@
 .btn_remove {
   cursor: pointer;
 }
+.btn_remove:hover {
+  color: red;
+}
 .buy-cart-products {
   max-width: 300px;
   margin: 50px 0;

@@ -1,11 +1,16 @@
 const cartListProduct = JSON.parse(localStorage.getItem("cart")) || [];
+const totalAmount = (totalAmount) => {
+  let total = 0;
+  cartListProduct.forEach((event) => {
+    const subtotal = parseInt(event.price) * event.quantity;
+    total += subtotal;
+  });
+  totalAmount.innerHTML = `${total.toLocaleString("vi-VN")}.000đ`;
+};
 const renderProductsCart = () => {
   const renderCart = cartListProduct.map(
     (data) =>
       `<tr class="item-cart">
-      <td class="choose-products">
-          <input type="checkbox" checked>
-      </td>
       <td class="images_title_cart" data-id=${data.id}>
           <div class="images-cart-product">
               <img src=${data.imgSrc}
@@ -30,12 +35,10 @@ const renderProductsCart = () => {
   );
   if (renderCart.length != 0) {
     $(".main-cart").innerHTML =
-      `
-            <thead class="infor-cart">
+      `<thead class="infor-cart">
             <tr>
-                <th style="width: 70px;">Chọn</th>
                 <th>Sản phẩm</th>
-                <th>Giá</th>
+                <th style="width:200px;">Giá</th>
                 <th>Số lượng</th>
                 <th style="width: 70px;">Xóa</th>
             </tr>
@@ -53,14 +56,6 @@ const renderProductsCart = () => {
       window.location.href = `/src/products.html?id=${event.currentTarget.dataset.id}`;
     });
   });
-  const totalAmount = () => {
-    let total = 0;
-    cartListProduct.forEach((event) => {
-      const subtotal = parseInt(event.price) * event.quantity;
-      total += subtotal;
-    });
-    $(".total-amount span").innerHTML = `${total.toLocaleString("vi-VN")}.000đ`;
-  };
   $$(".btn_increment-cart").forEach((e) => {
     e.addEventListener("click", (event) => {
       const name =
@@ -98,7 +93,7 @@ const renderProductsCart = () => {
           }
         });
       }
-      totalAmount();
+      totalAmount($(".total-amount span"));
     });
   });
   $$(".btn_decrenment-cart").forEach((e) => {
@@ -137,7 +132,7 @@ const renderProductsCart = () => {
           }
         });
       }
-      totalAmount();
+      totalAmount($(".total-amount span"));
     });
   });
   $$(".btn_remove").forEach((item) => {
@@ -166,6 +161,33 @@ const renderProductsCart = () => {
       });
     });
   });
-  totalAmount();
+  totalAmount($(".total-amount span"));
 };
-renderProductsCart();
+const payment = () => {
+  const $ = document.querySelector.bind(document);
+  const $$ = document.querySelectorAll.bind(document);
+  const renderItem = cartListProduct.map(
+    (data) =>
+      `<div class="item-products">
+                    <div class="item-img" data-quantity=${data.quantity}>
+                        <img src=${data.imgSrc}
+                            alt="">
+                    </div>
+                    <div class="title-products">
+                        <p class="name">${data.name}</p>
+                        <p class="color-size">${data.color} / Size ${data.size}</p>
+                    </div>
+                    <p class="price">${data.price}đ</p>
+                </div>`
+  );
+  $(".main-right").innerHTML = renderItem.join("");
+  totalAmount($(".total-payment"));
+};
+const getQueryString = window.location.search;
+const urlQuery = new URLSearchParams(getQueryString);
+const getStatusValue = urlQuery.get("status");
+if (getStatusValue != "payment") {
+  renderProductsCart();
+} else {
+  payment();
+}

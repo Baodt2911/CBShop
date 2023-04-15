@@ -93,18 +93,10 @@
   margin: 50px 0;
   font-family: system-ui, sans-serif;
 }
-.favourite h1 span {
-  border-bottom: 3px solid #6c5ce7;
-}
-.favourite .fa-heart {
-  color: red;
-  margin-right: 5px;
-}
-.sale h1 span {
-  color: red;
-  border-bottom: 3px solid red;
-}
-.bestseller h1::after {
+
+.bestseller h1::after,
+.favourite h1::after,
+.sale h1::after {
   position: absolute;
   content: "";
   width: 50%;
@@ -236,43 +228,4 @@
 .favourite-content .item-products:hover .name,
 .swap-content .item-products:hover .name {
   color: #e74c3c;
-}
-.bestseller-content .item-products:hover .buy-add,
-.sale-content .item-products:hover .buy-add,
-.favourite-content .item-products:hover .buy-add {
-  transform: translateY(0);
-  opacity: 1;
-}
-.buy-add {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  bottom: 90px;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  gap: 10px;
-  padding-bottom: 50px;
-  transform: translateY(-200%);
-  opacity: 0;
-  transition: 0.7s;
-  border-radius: 5px 30px;
-}
-.buy-add .add-cart,
-.buy-add .buy {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background: rgba(225, 225, 225, 0.7);
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-}
-.buy-add .buy {
-  font-size: 13px;
-  background: rgba(231, 76, 60, 0.7);
-  text-decoration: none;
 }

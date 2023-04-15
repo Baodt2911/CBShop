@@ -113,7 +113,7 @@ body::-webkit-scrollbar-thumb {
 }
 .main-header .search {
   position: relative;
-  width: 250px;
+  width: 300px;
   height: 30px;
   display: flex;
   align-items: center;
@@ -137,6 +137,7 @@ body::-webkit-scrollbar-thumb {
 }
 .main-header .search .btn-search {
   cursor: pointer;
+  margin-right: 3px;
 }
 .suggest {
   position: absolute;
@@ -164,13 +165,14 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  column-gap: 10px;
+  row-gap: 15px;
 }
 .suggest ul li a {
   text-decoration: none;
   color: #333;
   border: 1px solid #b2bec3;
-  padding: 2px 5px;
+  padding: 3px 7px;
   font-size: 13px;
   border-radius: 5px;
 }
@@ -182,6 +184,12 @@ body::-webkit-scrollbar-thumb {
 .accessory,
 .profile {
   position: relative;
+}
+.menClothes i,
+.womenClothes i,
+.accessory i,
+.profile i {
+  font-size: 10px;
 }
 .notice {
   width: 200px;

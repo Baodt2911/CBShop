@@ -28,19 +28,10 @@ const moreStatus = () => {
                             <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
                               "vi-VN"
                             )}</span></p>
-                            <div class="buy-add">
-                                <div class="add-cart">
-                                    <img src="../assets/icon/addcart.png" alt="">
-                                    Thêm vào giỏ hàng
-                                </div>
-                                <a href="" class="buy">Mua ngay</a>
-                            </div>
                 </div>
               `;
       });
       $(".content").innerHTML = htmls.join("");
-      handleAddCart(); //Xử lý sự kiện bên Global.js
-      handleBuy();
     });
   //Thay đổi status
   const titleMore = {
@@ -74,13 +65,6 @@ const createElement = () => {
                             <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
                               "vi-VN"
                             )}</span></p>
-                            <div class="buy-add">
-                                <div class="add-cart">
-                                    <img src="../assets/icon/addcart.png" alt="">
-                                    Thêm vào giỏ hàng
-                                </div>
-                                <a href="" class="buy">Mua ngay</a>
-                            </div>
                 </div>
               `;
         });
@@ -177,8 +161,6 @@ const createElement = () => {
       changeTitle();
       arrangeData();
       arrangePrice();
-      handleAddCart(); //Xử lý sự kiện bên Global.js
-      handleBuy();
     });
 };
 const infoProducts = () => {
@@ -188,10 +170,8 @@ const infoProducts = () => {
       const renderProducts = () => {
         $(".item-slide-products img").src = datas[0].main[0].images;
         $(".name").innerHTML = datas[0].name;
-        $(".add-cart-infor-products").dataset.id = datas[0].id;
-        $(".price span").innerHTML = `${datas[0].price.toLocaleString(
-          "vi-VN"
-        )}`;
+        $(".add-cart").dataset.id = datas[0].id;
+        $(".price span").innerHTML = datas[0].price.toLocaleString("vi-VN");
         //Render Size
         const size = datas[0].size.map(
           (dataSize) =>
@@ -338,7 +318,6 @@ const infoProducts = () => {
       handleQuantityClick();
       handleGeneralProducts();
       handleAddCart(); //Xử lý sự kiện bên Global.js
-      handleBuy();
     });
 };
 const ResultsSearch = () => {
@@ -357,13 +336,6 @@ const ResultsSearch = () => {
                             <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
                               "vi-VN"
                             )}</span></p>
-                            <div class="buy-add">
-                                <div class="add-cart">
-                                    <img src="../assets/icon/addcart.png" alt="">
-                                    Thêm vào giỏ hàng
-                                </div>
-                                <a href="" class="buy">Mua ngay</a>
-                            </div>
                 </div>
               `;
       });
@@ -378,8 +350,6 @@ const ResultsSearch = () => {
         ).innerHTML = `Có ${datas.length} kết quả tìm được với từ khóa: ${searchValue}`;
       }
       document.title = `${searchValue}-Tìm kiếm | CBShop`;
-      handleAddCart(); //Xử lý sự kiện bên Global.js
-      handleBuy();
     });
 };
 if (statusValue !== null) {

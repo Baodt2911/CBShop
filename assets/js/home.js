@@ -22,13 +22,6 @@ async function fetchData(api) {
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
                     "vi-VN"
                   )}</span></p>
-                  <div class="buy-add">
-                      <div class="add-cart">
-                          <img src="./assets/icon/addcart.png" alt="">
-                          Thêm vào giỏ hàng
-                      </div>
-                      <a href="" class="buy">Mua ngay</a>
-                  </div>
       </div>
     `;
   });
@@ -43,13 +36,6 @@ async function fetchData(api) {
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
                     "vi-VN"
                   )}</span></p>
-                  <div class="buy-add">
-                      <div class="add-cart">
-                          <img src="./assets/icon/addcart.png" alt="">
-                          Thêm vào giỏ hàng
-                      </div>
-                      <a href="" class="buy">Mua ngay</a>
-                  </div>
       </div>
     `;
   });
@@ -63,13 +49,6 @@ async function fetchData(api) {
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
                     "vi-VN"
                   )}</span></p>
-                  <div class="buy-add">
-                      <div class="add-cart">
-                          <img src="./assets/icon/addcart.png" alt="">
-                          Thêm vào giỏ hàng
-                      </div>
-                      <a href="" class="buy">Mua ngay</a>
-                  </div>
       </div>
     `;
   });

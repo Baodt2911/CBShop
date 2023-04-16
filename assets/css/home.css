@@ -82,9 +82,7 @@
   margin: 0 auto;
   margin-bottom: 30px;
 }
-.bestseller h1 {
-  margin: 100px 0 50px 0;
-}
+
 .bestseller h1,
 .sale h1,
 .favourite h1 {
@@ -228,4 +226,49 @@
 .favourite-content .item-products:hover .name,
 .swap-content .item-products:hover .name {
   color: #e74c3c;
+}
+/* Tablet */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .banner{
+    height: 500px;
+  }
+  .banner h1{
+    margin: 0px 0;
+  }
+  .bestseller-content ,
+  .sale-content ,
+  .favourite-content {
+    height: 400px;
+  }
+  .bestseller-content .item-products,
+.sale-content .item-products,
+.favourite-content .item-products {
+  height: 350px;
+  flex: 1 0 250px;
+}
+.bestseller-content .item-products .name,
+.sale-content .item-products .name,
+.favourite-content .item-products .name {
+  font-size: 13px;
+}
+.bestseller-content .item-products .price,
+.sale-content .item-products .price,
+.favourite-content .item-products .price {
+  margin-top: 5px;
+}
+.next,
+.prev {
+  font-size: 30px;
+}
+.next{
+  right: -25px;
+}
+.prev{
+  left: -25px;
+}
+.bestseller h1,
+.sale h1,
+.favourite h1 {
+  margin: 20px 0;
+}
 }

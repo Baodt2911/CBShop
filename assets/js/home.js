@@ -54,8 +54,6 @@ async function fetchData(api) {
   });
   $(".favourite-content").innerHTML =
     $(".favourite-content").innerHTML + htmls3.join("");
-  handleAddCart(); //Xử lý sự kiện bên Global.js
-  handleBuy();
 })();
 
 //Slider-Scroll

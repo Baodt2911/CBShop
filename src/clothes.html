@@ -20,7 +20,9 @@
                 <p class="contact">Liên hệ: <a href="#">+84 123456789</a></p>
             </div>
             <div class="main-header">
+                <i class="fa-solid fa-bars menu"></i>
                 <nav>
+                    <i class="fa-solid fa-x close-menu"></i>
                     <li><a href="../index.html">Trang chủ</a></li>
                     <li class="menClothes">
                         <a href="#">Đồ Nam</a>
@@ -96,7 +98,7 @@
             <div class="main-content">
                 <div class="title-content">
                     <h1>Áo polo</h1>
-                    <div class="fillter-select">
+                    <div class="filter-select">
                         <span>Sắp xếp theo: </span>
                         <select name="Sắp xếp" id="select">
                             <option value="default">Mặc định</option>
@@ -109,25 +111,29 @@
 
                 </div>
             </div>
-            <div class="fillter-price">
-                <h3>Khoảng giá</h3>
-                <div class="card-fillter-price">
-                    <label class="item-fillter">Dưới 100.000₫
-                        <input type="checkbox" data-price="0-100000">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="item-fillter">100.000₫ - 300.000₫
-                        <input type="checkbox" data-price="100000-300000">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="item-fillter">300.000₫ - 500.000₫
-                        <input type="checkbox" data-price="300000-500000">
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="item-fillter">500.000₫ - 1.000.000₫
-                        <input type="checkbox" data-price="500000-1000000">
-                        <span class="checkmark"></span>
-                    </label>
+            <div class="filter-main">
+                <div class="btn-filter"><i class="fa-solid fa-filter"></i></div>
+                <div class="filter-price">
+                    <i class="fa-solid fa-xmark close-filter"></i>
+                    <h3>Khoảng giá</h3>
+                    <div class="card-filter-price">
+                        <label class="item-filter">Dưới 100.000₫
+                            <input type="checkbox" data-price="0-100000">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="item-filter">100.000₫ - 300.000₫
+                            <input type="checkbox" data-price="100000-300000">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="item-filter">300.000₫ - 500.000₫
+                            <input type="checkbox" data-price="300000-500000">
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="item-filter">500.000₫ - 1.000.000₫
+                            <input type="checkbox" data-price="500000-1000000">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>

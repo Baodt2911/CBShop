@@ -15,7 +15,42 @@ $(".search-input").addEventListener("blur", () => {
   $(".suggest").style.opacity = "0";
   $(".suggest").style.visibility = "hidden";
 });
-
+//Menu
+$(".main-header .menu ").addEventListener("click",()=>{
+  $(".main-header nav").style.opacity = "1"
+  $(".main-header nav").style.transform = "translateX(0)"
+})
+//Close Menu
+$(".main-header nav .close-menu").addEventListener("click",()=>{
+  $(".main-header nav").style.opacity = "0"
+  $(".main-header nav").style.transform = "translateX(-100%)"
+})
+//Child menu
+const handleChildMenu = ()=>{
+  const toggleChild = ( childElement, isOpen) => {
+    childElement.style.height = isOpen ? "0" : "auto";
+    return !isOpen;
+  };
+  
+  let menClothesOpen = false;
+  $(".menClothes").addEventListener("click", (e) => {
+    e.target.style.color = menClothesOpen ? "#333" : "#eb4d4b"
+    menClothesOpen = toggleChild( $(".menClothes-child"), menClothesOpen);
+  });
+  
+  let womenClothesOpen = false;
+  $(".womenClothes").addEventListener("click", (e) => {
+    e.target.style.color = womenClothesOpen ? "#333" : "#eb4d4b"
+    womenClothesOpen = toggleChild( $(".womenClothes-child"), womenClothesOpen);
+  });
+  
+  let accessoryOpen = false;
+  $(".accessory").addEventListener("click", (e) => {
+    e.target.style.color = accessoryOpen ? "#333" : "#eb4d4b"
+    accessoryOpen = toggleChild( $(".accessory-child"), accessoryOpen);
+  });
+}
+handleChildMenu();
 //Scrooll-header
 window.addEventListener("scroll", () => {
   let Y = window.scrollY;

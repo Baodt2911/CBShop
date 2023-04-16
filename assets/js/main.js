@@ -69,6 +69,9 @@ const createElement = () => {
               `;
         });
         $(".content-clothes").innerHTML = htmls.join("");
+        if (datas.length == 0) {
+          $(".content-clothes").innerHTML = "Không có sản phẩm với giá tiền này"
+        }
       };
       CreateProduct(datas); //Truyền data được lấy từ api cho Create Product
       //Thay đổi status
@@ -158,9 +161,20 @@ const createElement = () => {
           });
         });
       };
+      const switchFilter = ()=>{
+        $(".btn-filter").addEventListener("click",()=>{
+          $(".filter-price").style.opacity = "1"
+          $(".filter-price").style.transform = "translateX(0)"
+        })
+        $(".close-filter").addEventListener("click",()=>{
+          $(".filter-price").style.opacity = "0"
+          $(".filter-price").style.transform = "translateX(110%)"
+        })
+      }
       changeTitle();
       arrangeData();
       arrangePrice();
+      switchFilter();
     });
 };
 const infoProducts = () => {

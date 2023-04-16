@@ -166,6 +166,7 @@ const renderProductsCart = () => {
 const payment = () => {
   const $ = document.querySelector.bind(document);
   const $$ = document.querySelectorAll.bind(document);
+  $(".card-right h2 span").innerHTML =`(${cartListProduct.length || 0} sản phẩm)`
   const renderItem = cartListProduct.map(
     (data) =>
       `<div class="item-products">
@@ -182,6 +183,81 @@ const payment = () => {
   );
   $(".main-right").innerHTML = renderItem.join("");
   totalAmount($(".total-payment"));
+  (function validationInfor (){
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    const regexPhone = /^(03[2-9]|05[6|8|9]|07[0|6-9]|08[1-9]|09[0-9]|01[2|6|8|9])+([0-9]{7})$/
+    let condition = false; 
+    $(".btn-pay").addEventListener("click",()=>{
+      if ($(".name").value.trim().length < 3 || $(".name").value.trim().length >= 50) {
+        $(".name").style.border = "1px solid red"
+        condition = false
+      }else{
+        $(".name").style.border = "1px solid gray"
+        condition = true
+      }
+
+      if (regexEmail.test($(".email").value.trim())) {
+        $(".email").style.border = "1px solid gray"
+        condition = true       
+      }else{
+        $(".email").style.border = "1px solid red"
+        condition = false
+      }
+      
+      if (regexPhone.test($(".phone").value.trim())) {
+        $(".phone").style.border = "1px solid gray"
+        condition = true       
+      }else{
+        $(".phone").style.border = "1px solid red"
+        condition = false
+      }
+
+      if ($(".address").value.trim().length <= 5 || $(".address").value.trim().length > 100) {
+        $(".address").style.border = "1px solid red"
+        condition = false
+      }else{
+        $(".address").style.border = "1px solid gray"
+        condition = true
+      }
+
+      if ($(".province-city").value.trim().length <= 5 || $(".province-city").value.trim().length > 50) {
+        $(".province-city").style.border = "1px solid red"
+        condition = false
+      }else{
+        $(".province-city").style.border = "1px solid gray"
+        condition = true
+      }
+      if ($(".district").value.trim().length <= 5 || $(".district").value.trim().length > 50) {
+        $(".district").style.border = "1px solid red"
+        condition = false
+      }else{
+        $(".district").style.border = "1px solid gray"
+        condition = true
+      }
+      
+      if ($(".wards").value.trim().length <= 5 || $(".wards").value.trim().length > 50) {
+        $(".wards").style.border = "1px solid red"
+        condition = false
+      }else{
+        $(".wards").style.border = "1px solid gray"
+        condition = true
+      }
+      if (condition) {
+        $(".notice-success").style.opacity = "1"
+        $(".notice-success").style.visibility = "inherit"
+        setTimeout(()=>{
+            window.location.href = "/src/cart.html"
+            localStorage.removeItem("cart")
+        },10000)
+      }else{
+      alert("Vui lòng điền đầy đủ và đúng thông tin")
+      }
+    })
+    $(".close").addEventListener("click",()=>{
+      window.location.href = "/src/cart.html"
+      localStorage.removeItem("cart")
+    })
+  })()
 };
 const getQueryString = window.location.search;
 const urlQuery = new URLSearchParams(getQueryString);

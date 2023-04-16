@@ -73,3 +73,28 @@
 .results-search .item-products:hover .name {
   color: #e74c3c;
 }
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    margin:50px auto;
+  }
+  .results-search{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    column-gap: 0px;
+  row-gap: 0px;
+  gap: 50px;
+  }
+  .results-search .item-products {
+    width: 250px;
+    height: 350px;
+    flex: 0 1 250px;
+  }
+  .results-search .item-products .name {
+    font-size: 13px;
+  }
+  .results-search .item-products .price {
+    margin-top: 5px;
+  }
+  
+}

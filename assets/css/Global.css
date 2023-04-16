@@ -149,6 +149,7 @@ body::-webkit-scrollbar-thumb {
   opacity: 0;
   visibility: hidden;
   transition: 0.3s all;
+  z-index: 99;
 }
 .suggest h6 {
   text-transform: uppercase;
@@ -400,7 +401,17 @@ footer ul.social-icons li a:hover {
   border-radius: 50%;
   animation: spin 2s linear infinite; /* Tạo hiệu ứng quay vòng */
 }
-
+.main-header .menu{
+  display: none;
+  cursor: pointer;
+}
+.main-header nav .close-menu{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+  display: none;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -408,4 +419,147 @@ footer ul.social-icons li a:hover {
   100% {
     transform: rotate(360deg);
   }
+}
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  #header-top {
+   justify-content: space-between;
+  }
+  #header-top .support-payment {
+    font-size: 12px;
+  }
+  #header-top .contact {
+    font-size: 12px;
+  }
+  #header-top .contact a {
+    font-size: 10px;
+  }
+  .main-header .menu{
+    display: block;
+    font-size: 25px;
+  }
+  .main-header nav .close-menu{
+    display: block;
+    cursor: pointer;
+  }
+  .main-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: unset;
+  }
+  .main-header nav {
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    flex-direction: column;
+    justify-content: unset;
+    align-items: unset;
+    text-align: justify;
+    gap: 20px;
+    background: #fff;
+    z-index: 99999;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: .5s all;
+    padding-top: 50px;
+    padding-left: 100px;
+    font-size: 20px;
+  }
+  .main-header nav li {
+    width: 100px;
+  }
+  .menClothes,
+.womenClothes,
+.accessory{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menClothes i,
+.womenClothes i,
+.accessory i{
+  position: absolute;
+  top: 10px;
+  right: -5px;
+}
+  .menClothes-child,
+.womenClothes-child,
+.accessory-child{
+  position: unset;
+  height: 0;
+  overflow: hidden;
+  width: auto;
+  box-shadow: none;
+  border-radius: none;
+  transform: none;
+  opacity: unset;
+  visibility: unset;
+}
+
+.menClothes-child li a,
+.womenClothes-child li a,
+.accessory-child li a{
+  padding: 5px 0 ;
+  box-shadow: unset;
+  font-size: 13px;
+}
+
+.menClothes-child li:hover a,
+.womenClothes-child li:hover a,
+.accessory-child li:hover a,
+.profile-child li:hover a {
+  box-shadow:unset;
+  transform: unset;
+  color: #6c5ce7;
+}
+.menClothes-child::after,
+.womenClothes-child::after,
+.accessory-child::after {
+  display: none;
+}
+footer {
+  background-color: #f9f9f9;
+  padding: 50px 0 10px 0;
+  /* Xóa hiệu ứng của float: right; */
+  clear: both;
+}
+
+footer h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: system-ui, sans-serif;
+  letter-spacing: 2px;
+}
+
+footer p {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+footer ul.social-icons li a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+footer ul.social-icons li a i{
+  font-size: 14px;
+}
+footer ul.social-icons li a:hover {
+  background-color: #e74c3c;
+}
+.main-footer {
+  grid-template-columns: repeat(3, 25%);
+  justify-content: space-evenly;
+}
+.main-footer .newsletter-form {
+  margin-top: 30px;
+}
+.main-footer .newsletter-form #email {
+  width: 100%;
+}
+
+
 }

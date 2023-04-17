@@ -316,12 +316,12 @@ const infoProducts = () => {
           });
         $(".next-general").addEventListener("click", () => {
           $(".general-products").scrollLeft +=
-            $(".item-general-products").offsetWidth * 4;
+            $(".item-general-products").offsetWidth * 2;
           $(".prev-general").style.visibility = "inherit";
         });
         $(".prev-general").addEventListener("click", () => {
           $(".general-products").scrollLeft -=
-            $(".item-general-products").offsetWidth * 4;
+            $(".item-general-products").offsetWidth * 2;
           if ($(".general-products").scrollLeft <= 0) {
             $(".prev-general").style.visibility = "hidden";
           }

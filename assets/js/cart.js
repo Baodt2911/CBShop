@@ -20,6 +20,7 @@ const renderProductsCart = () => {
               <p class="name-products">${data.name}</p>
               <p class="color">Màu: <span>${data.color}</span></p>
               <p class="size">Size: <span>${data.size}</span></p>
+              <p class="remove">Xóa</p>
           </div>
       </td>
       <td class="price-cart">${data.price}đ</td>
@@ -51,11 +52,6 @@ const renderProductsCart = () => {
       `;
   }
   $(".container h1 span").innerHTML = `(${cartListProduct.length} sản phẩm)`;
-  $$(".images_title_cart").forEach((item) => {
-    item.addEventListener("click", (event) => {
-      window.location.href = `/src/products.html?id=${event.currentTarget.dataset.id}`;
-    });
-  });
   $$(".btn_increment-cart").forEach((e) => {
     e.addEventListener("click", (event) => {
       const name =
@@ -136,6 +132,33 @@ const renderProductsCart = () => {
     });
   });
   $$(".btn_remove").forEach((item) => {
+    item.addEventListener("click", (element) => {
+      cartListProduct.forEach((e) => {
+        const name =
+          element.target.parentNode.parentNode.querySelector(
+            ".name-products"
+          ).textContent;
+        const size =
+          element.target.parentNode.parentNode.querySelector(
+            ".size span"
+          ).textContent;
+        const color =
+          element.target.parentNode.parentNode.querySelector(
+            ".color span"
+          ).textContent;
+        //Xóa phần tử có name,size,color trùng với trong mảng khi click remove
+        if (name === e.name && size === e.size && color === e.color) {
+          cartListProduct.splice(cartListProduct.indexOf(e), 1);
+          localStorage.setItem("cart", JSON.stringify(cartListProduct));
+          $(".cart").dataset.count =
+            JSON.parse(localStorage.getItem("cart")).length || 0; //Cập nhật khi giỏ hàng bị xóa
+          renderProductsCart();
+        }
+      });
+    });
+  });
+  //Nút xóa khi ở màn hình điện thoại
+  $$(".remove").forEach((item) => {
     item.addEventListener("click", (element) => {
       cartListProduct.forEach((e) => {
         const name =
@@ -258,6 +281,16 @@ const payment = () => {
       localStorage.removeItem("cart")
     })
   })()
+  $(".show-product").addEventListener("click",()=>{
+    console.log($(".wrapper-right").offsetHeight);
+    if ($(".wrapper-right").offsetHeight != 50) {
+      $(".wrapper-right").style.height = "50px"
+      $(".show-product i").style = "transform: rotate(0)"
+    }else{     
+      $(".wrapper-right").style.height = "100%"
+      $(".show-product i").style = "transform: rotate(180deg)"
+    }
+  })
 };
 const getQueryString = window.location.search;
 const urlQuery = new URLSearchParams(getQueryString);

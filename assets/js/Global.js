@@ -65,7 +65,7 @@ window.addEventListener("scroll", () => {
 });
 //Hiệu ứng load trang
 window.addEventListener("load", function () {
-  $(".main-loader").style.display = "block";
+  $(".main-loader").style.display = "flex";
   $("body").style.overflow = "hidden";
   setTimeout(function () {
     $(".main-loader").style.display = "none";
@@ -117,8 +117,10 @@ let index = 0;
 const handleAddCart = () => {
   $(".add-cart").addEventListener("click", (item) => {
     $(".notice").style = "transform:translateX(0)";
+    $(".notice").style.opacity = "1";
     setTimeout(() => {
       $(".notice").style = "transform:translateX(105%)";
+      $(".notice").style.opacity = "0";
     }, 2000);
     const id = item.target.dataset.id;
     const img = $(".item-slide-products img").src;

@@ -16,6 +16,9 @@ body {
   justify-content: center;
   align-items: center;
   background: url(https://cdn.shopify.com/s/files/1/0070/7032/files/start-a-clothing-line-retail.jpg?v=1635875038);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .wrapper {
@@ -166,4 +169,19 @@ input::placeholder {
 
 .register button {
   width: 70%;
+}
+@media screen and (min-width:768px) and (max-width:1024px) {
+  .wrapper{
+    width: 60%;
+    height: 600px;
+    }
+    .switch-login-register{
+      width: 80%;
+    }
+    .main-content {
+      width: 80%;
+    }
+    input::placeholder {
+      font-size: 10px;
+    }
 }

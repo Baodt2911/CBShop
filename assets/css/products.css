@@ -321,6 +321,7 @@
     font-size: 16px;
   }
   .card-right .card-size {
+    grid-template-columns: 10% 15%;
     margin-bottom: 15px;
   }
   .card-right .card-color{

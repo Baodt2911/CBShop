@@ -645,6 +645,7 @@ footer ul.social-icons li a:hover {
   }
   .main-header nav li {
     width: 100px;
+    font-size: 16px;
   }
   .menClothes,
 .womenClothes,
@@ -657,8 +658,10 @@ footer ul.social-icons li a:hover {
 .womenClothes i,
 .accessory i{
   position: absolute;
-  top: 10px;
-  right: -5px;
+  top: 5px;
+  right: 0;
+  font-size: 12px;
+  transition: .5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
   .menClothes-child,
 .womenClothes-child,
@@ -671,16 +674,25 @@ footer ul.social-icons li a:hover {
   transform: none;
   opacity: unset;
   visibility: unset;
+  margin-top: 10px;
 }
-
 .menClothes-child li a,
 .womenClothes-child li a,
 .accessory-child li a{
-  padding: 5px 0 ;
+  position: relative;
+  padding: 10px 0 ;
+  padding-left: 10px;
   box-shadow: unset;
   font-size: 13px;
+  letter-spacing: 1px;
 }
-
+.menClothes-child li a::after,
+.womenClothes-child li a::after,
+.accessory-child li a::after{
+  position: absolute;
+  content: "-";
+  left: 0;
+}
 .menClothes-child li:hover a,
 .womenClothes-child li:hover a,
 .accessory-child li:hover a,

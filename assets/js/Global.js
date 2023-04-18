@@ -33,20 +33,26 @@ const handleChildMenu = ()=>{
   };
   
   let menClothesOpen = false;
-  $(".menClothes").addEventListener("click", (e) => {
-    e.target.style.color = menClothesOpen ? "#333" : "#eb4d4b"
+  $(".menClothes").addEventListener("click", () => {
+    $(".menClothes i").style.transform = menClothesOpen ? "rotate(0)" : "rotate(180deg)"
+    $(".menClothes i").style.color = menClothesOpen ? "#333" : "#eb4d4b"
+    $(".menClothes a").style.color = menClothesOpen ? "#333" : "#eb4d4b"
     menClothesOpen = toggleChild( $(".menClothes-child"), menClothesOpen);
   });
   
   let womenClothesOpen = false;
-  $(".womenClothes").addEventListener("click", (e) => {
-    e.target.style.color = womenClothesOpen ? "#333" : "#eb4d4b"
+  $(".womenClothes").addEventListener("click", () => {
+    $(".womenClothes i").style.transform = womenClothesOpen ? "rotate(0)" : "rotate(180deg)"
+    $(".womenClothes i").style.color = womenClothesOpen ? "#333" : "#eb4d4b"
+    $(".womenClothes a").style.color = womenClothesOpen ? "#333" : "#eb4d4b"
     womenClothesOpen = toggleChild( $(".womenClothes-child"), womenClothesOpen);
   });
   
   let accessoryOpen = false;
-  $(".accessory").addEventListener("click", (e) => {
-    e.target.style.color = accessoryOpen ? "#333" : "#eb4d4b"
+  $(".accessory").addEventListener("click", () => {
+    $(".accessory i").style.transform = accessoryOpen ? "rotate(0)" : "rotate(180deg)"
+    $(".accessory i").style.color = accessoryOpen ? "#333" : "#eb4d4b"
+    $(".accessory a").style.color = accessoryOpen ? "#333" : "#eb4d4b"
     accessoryOpen = toggleChild( $(".accessory-child"), accessoryOpen);
   });
 }

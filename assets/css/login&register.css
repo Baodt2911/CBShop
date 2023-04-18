@@ -185,3 +185,31 @@ input::placeholder {
       font-size: 10px;
     }
 }
+@media screen and (min-width:320px) and (max-width:430px) {
+  *{
+    cursor: none !important;
+  }
+  .wrapper{
+    width: 90%;
+    height: 60%;
+  padding: 20px 10px;
+    }
+    .main-content{
+      margin-top: 20px;
+    }
+    .switch-login-register{
+      width: 80%;
+    }
+    .main-content {
+      width: 90%;
+    }
+    input::placeholder {
+      font-size: 10px;
+    }
+    .register , .login{
+      row-gap: 30px;
+    }
+    input{
+      font-size: 12px;
+    }
+}

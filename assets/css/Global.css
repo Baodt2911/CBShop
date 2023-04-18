@@ -644,7 +644,7 @@ footer ul.social-icons li a:hover {
     font-size: 20px;
   }
   .main-header nav li {
-    width: 100px;
+    width: 120px;
     font-size: 16px;
   }
   .menClothes,
@@ -659,7 +659,7 @@ footer ul.social-icons li a:hover {
 .accessory i{
   position: absolute;
   top: 5px;
-  right: 0;
+  right: 30px;
   font-size: 12px;
   transition: .5s cubic-bezier(0.215, 0.610, 0.355, 1);
 }

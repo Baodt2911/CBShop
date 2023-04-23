@@ -18,16 +18,14 @@ const moreStatus = () => {
     .then((datas) => {
       const htmls = datas.map((data) => {
         return `
-              <div class="item-products" data-id=${
-                data.id
-              } onclick="handleClick(this)">
-                            <img src=${
-                              data.main[0].images
-                            } alt="" class="item-img">
+              <div class="item-products" data-id=${data.id
+          } onclick="handleClick(this)">
+                            <img src=${data.main[0].images
+          } alt="" class="item-img">
                             <p class="name">${data.name}</p>
                             <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
-                              "vi-VN"
-                            )}</span></p>
+            "vi-VN"
+          )}</span></p>
                 </div>
               `;
       });
@@ -55,16 +53,14 @@ const createElement = () => {
         //Hàm CretaProduct tạo ra để dùng tái sử dụng khi sắp xếp theo giá , sắp xếp tăng dần
         const htmls = datas.map((data) => {
           return `
-              <div class="item-products" data-id=${
-                data.id
-              } onclick="handleClick(this)">
-                            <img src=${
-                              data.main[0].images
-                            } alt="" class="item-img">
+              <div class="item-products" data-id=${data.id
+            } onclick="handleClick(this)">
+                            <img src=${data.main[0].images
+            } alt="" class="item-img">
                             <p class="name">${data.name}</p>
                             <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
-                              "vi-VN"
-                            )}</span></p>
+              "vi-VN"
+            )}</span></p>
                 </div>
               `;
         });
@@ -113,7 +109,7 @@ const createElement = () => {
       // Sắp xếp theo giá
       const arrangePrice = () => {
         $$("input[type=checkbox]").forEach((checkboxs) => {
-          checkboxs.addEventListener("change", () => {});
+          checkboxs.addEventListener("change", () => { });
         });
         // // Tạo một mảng chứa các điều kiện lọc sản phẩm
         const filterConditions = [
@@ -161,12 +157,12 @@ const createElement = () => {
           });
         });
       };
-      const switchFilter = ()=>{
-        $(".btn-filter").addEventListener("click",()=>{
+      const switchFilter = () => {
+        $(".btn-filter").addEventListener("click", () => {
           $(".filter-price").style.opacity = "1"
           $(".filter-price").style.transform = "translateX(0)"
         })
-        $(".close-filter").addEventListener("click",()=>{
+        $(".close-filter").addEventListener("click", () => {
           $(".filter-price").style.opacity = "0"
           $(".filter-price").style.transform = "translateX(110%)"
         })
@@ -340,16 +336,14 @@ const ResultsSearch = () => {
     .then((datas) => {
       const resultsSearch = datas.map((data) => {
         return `
-              <div class="item-products" data-id=${
-                data.id
-              } onclick="handleClick(this)">
-                            <img src=${
-                              data.main[0].images
-                            } alt="" class="item-img">
+              <div class="item-products" data-id=${data.id
+          } onclick="handleClick(this)">
+                            <img src=${data.main[0].images
+          } alt="" class="item-img">
                             <p class="name">${data.name}</p>
                             <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
-                              "vi-VN"
-                            )}</span></p>
+            "vi-VN"
+          )}</span></p>
                 </div>
               `;
       });

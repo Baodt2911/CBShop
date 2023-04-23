@@ -17,10 +17,22 @@
             <div class="main-left">
                 <img src="../assets/images/CBShopLogo.png" alt="logo" class="logo">
                 <h3>Thông tin thanh toán</h3>
-                <h5>Bạn đã có tài khoản? <a href="../src/login&register.html">Đăng nhập</a></h5>
+                <h5>Bạn đã có tài khoản? <a href="../src/login.html">Đăng nhập</a></h5>
+                <div class="address-available">
+                    <h3>Sử dụng địa chỉ của bạn <span style="font-size: 10px;text-transform: none;">(Bấm để chọn)</span>
+                    </h3>
+                    <div class="main-address-pay">
+                        <p class="name-user">Họ và Tên: <span>Đỗ Bảo</span></p>
+                        <p class="email-user">Email: <span>dobao2911bs@gmail.com</span></p>
+                        <p class="phone-user">SĐT: <span>012345678</span></p>
+                        <p class="address-user">Địa chỉ: <span>Thôn Mới, Bồ Sao, Vĩnh Tường Vĩnh Phúc</span></p>
+                    </div>
+                    <a href="/src/user.html?to=address" class="add-address"><i class="fa-solid fa-circle-plus"></i>Thêm
+                        địa chỉ giao hàng</a>
+                </div>
                 <form>
                     <input type="text" class="name" placeholder="Họ và Tên">
-                    <input type="email" class="email" placeholder="Email">
+                    <input type="email" class="email" placeholder="Email" name="email">
                     <input type="tel" class="phone" placeholder="Điện thoại">
                     <input type="text" class="address" placeholder="Địa chỉ">
                     <input type="text" class="province-city" placeholder="Tỉnh/TP">
@@ -64,11 +76,11 @@
             <div class="show-product"><i class="fa-solid fa-chevron-down"></i></div>
         </div>
         <div class="notice-success">
-           <div class="notice">
-               <i class="fa-solid fa-xmark close"></i>
-            <h3>Cảm ơn bạn đã mua hàng</h3>
-            <p>Chúng tôi sẽ gọi điện cho bạn để xác nhận đơn hàng</p>
-           </div>
+            <div class="notice">
+                <i class="fa-solid fa-xmark close"></i>
+                <h3>Cảm ơn bạn đã mua hàng</h3>
+                <p>Chúng tôi sẽ gọi điện cho bạn để xác nhận đơn hàng</p>
+            </div>
         </div>
     </div>
     <script type="module" src="../assets/js/cart.js"></script>

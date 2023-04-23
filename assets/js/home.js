@@ -20,8 +20,8 @@ async function fetchData(api) {
                   <img src=${data.main[0].images} alt="" class="item-img">
                   <p class="name">${data.name}</p>
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
-                    "vi-VN"
-                  )}</span></p>
+      "vi-VN"
+    )}</span></p>
       </div>
     `;
   });
@@ -34,8 +34,8 @@ async function fetchData(api) {
                   <img src=${data.main[0].images} alt="" class="item-img">
                   <p class="name">${data.name}</p>
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
-                    "vi-VN"
-                  )}</span></p>
+      "vi-VN"
+    )}</span></p>
       </div>
     `;
   });
@@ -47,8 +47,8 @@ async function fetchData(api) {
                   <img src=${data.main[0].images} alt="" class="item-img">
                   <p class="name">${data.name}</p>
                   <p class="price">Giá: <span style="color:#e74c3c;">${data.price.toLocaleString(
-                    "vi-VN"
-                  )}</span></p>
+      "vi-VN"
+    )}</span></p>
       </div>
     `;
   });

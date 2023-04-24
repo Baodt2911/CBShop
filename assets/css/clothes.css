@@ -215,20 +215,19 @@
   }
 
   .content-clothes {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     flex-wrap: wrap;
     column-gap: 0px;
     row-gap: 0px;
-    gap: 50px;
+    gap: 30px;
   }
 
   .content-clothes .item-products {
-    width: 250px;
-    height: 350px;
-    flex: 0 1 250px;
+    height: 300px;
+    flex: 0 1 200px;
   }
 
   .content-clothes .item-products .name {
@@ -314,7 +313,7 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: start;
+    justify-content: center;
     flex-wrap: wrap;
     column-gap: 0px;
     row-gap: 0px;
@@ -324,7 +323,7 @@
   .content-clothes .item-products {
     width: 150px;
     height: 250px;
-    flex: 1 0 150px;
+    flex: 0 1 150px;
     border-radius: 5px;
   }
 

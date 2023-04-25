@@ -128,7 +128,7 @@ const saveProducts = (id, img, name, price, color, size, quantity) => {
     cartList.push(product);
   };
   if (findProducts) {
-    findProducts.quantity++; //Tăng số lượng sản phẩm
+    findProducts.quantity += quantity; //Tăng số lượng sản phẩm
   } else {
     pushProduct();
   }

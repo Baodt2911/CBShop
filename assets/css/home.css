@@ -100,18 +100,6 @@
   font-family: system-ui, sans-serif;
 }
 
-.bestseller h1::after,
-.favourite h1::after,
-.sale h1::after {
-  position: absolute;
-  content: "";
-  width: 50%;
-  height: 3px;
-  bottom: 0;
-  left: 0;
-  background: #6c5ce7;
-}
-
 .bestseller-content,
 .sale-content,
 .favourite-content {

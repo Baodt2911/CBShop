@@ -276,12 +276,17 @@ const infoProducts = () => {
         handleClickColorImages();
       };
       let valueQuantity = 1;
+      $(".btn_quantity_input").addEventListener("input", (e) => {
+        if (e.target.value == 0) {
+          $(".btn_quantity_input").value = valueQuantity
+        }
+        if (e.target.value > 99) {
+          $(".btn_quantity_input").value = 100
+        }
+      })
       const handleQuantityClick = () => {
         $(".btn_increment").addEventListener("click", () => {
           valueQuantity++;
-          if (valueQuantity >= $(".btn_quantity_input").max) {
-            valueQuantity = $(".btn_quantity_input").max;
-          }
           $(".btn_quantity_input").value = valueQuantity;
         });
         $(".btn_decrenment").addEventListener("click", () => {

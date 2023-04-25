@@ -209,6 +209,7 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 2px 0 #6c5ce7;
 }
 
+
 .menClothes,
 .womenClothes,
 .accessory,
@@ -317,6 +318,19 @@ body::-webkit-scrollbar-thumb {
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #fff;
+}
+
+.menClothes-child::before,
+.womenClothes-child::before,
+.accessory-child::before,
+.profile-child::before {
+  position: absolute;
+  content: "";
+  top: -15px;
+  left: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 15px;
 }
 
 .profile-child::after {
@@ -620,6 +634,13 @@ footer ul.social-icons li a:hover {
     display: none;
   }
 
+  .menClothes-child::before,
+  .womenClothes-child::before,
+  .accessory-child::before,
+  .profile-child::before {
+    display: none;
+  }
+
   footer h4 {
     font-size: 14px;
   }
@@ -829,6 +850,13 @@ footer ul.social-icons li a:hover {
   .menClothes-child::after,
   .womenClothes-child::after,
   .accessory-child::after {
+    display: none;
+  }
+
+  .menClothes-child::before,
+  .womenClothes-child::before,
+  .accessory-child::before,
+  .profile-child::before {
     display: none;
   }
 

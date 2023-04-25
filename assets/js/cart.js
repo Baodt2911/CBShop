@@ -33,7 +33,7 @@ const renderProductsCart = () => {
       <td class="price-cart">${data.price}đ</td>
       <td class="quantity-cart">
           <input type="button" value="-" class="btn_decrenment-cart">
-          <input type="number" class="btn_quantity_input_cart" min="1" max="10" value=${data.quantity}>
+          <input type="number" class="btn_quantity_input_cart" min="1" max="10" value=${data.quantity} disabled>
           <input type="button" value="+" class="btn_increment-cart">
       </td>
       <td class="remove-products">
@@ -72,11 +72,10 @@ const renderProductsCart = () => {
       const increaseValue = event.target.parentNode.querySelector(
         ".btn_quantity_input_cart"
       ).value++;
-
-      if (increaseValue > 9) {
+      if (increaseValue > 99) {
         event.target.parentNode.querySelector(
           ".btn_quantity_input_cart"
-        ).value = increaseValue;
+        ).value = 100;
 
         cartListProduct.forEach((e) => {
           if (name === e.name && size === e.size && color === e.color) {
@@ -84,16 +83,17 @@ const renderProductsCart = () => {
             localStorage.setItem("cart", JSON.stringify(cartListProduct));
           }
         });
-      } else {
+      }
+      else {
         cartListProduct.forEach((e) => {
           if (name === e.name && size === e.size && color === e.color) {
             e.quantity++;
             localStorage.setItem("cart", JSON.stringify(cartListProduct));
           }
-        });
+        })
       }
       totalAmount($(".total-amount span"));
-    });
+    })
   });
   $$(".btn_decrenment-cart").forEach((e) => {
     e.addEventListener("click", (event) => {
